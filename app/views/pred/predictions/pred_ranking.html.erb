@@ -1,0 +1,45 @@
+<h3><%= t('prediction.ranking_users')+" - "+@pred_prediction.competition.name %></h3>
+<div class="text-right">
+  <% if current_page?(pred_prediction_pred_ranking_path(@pred_prediction)) %>
+    <%= link_to @competition.name, pred_prediction_path(@pred_prediction), class:"btn btn-default btn-sm" %>
+  <% end %>
+</div>
+<br>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th class="text-center"><%= t('prediction.position') %></th>
+        <th class="text-center"><%= t('prediction.user') %></th>
+        <th class="text-center"><%= t('prediction.points') %></th>
+        <th class="text-center"><%= t('layout.options') %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @predictions.order('position').includes(:user).each do |prediction_user| %>
+        <tr>
+          <td class="text-center"><%= prediction_user.position %></td>
+          <td>
+            <div class="vcenter" style="float:left">
+              <%= display_picture_from_user(prediction_user.user_id, 18, 18, "img-responsive img-circle") %>
+            </div>&nbsp;
+            <div class="vcenter">
+              <%= prediction_user.user.name %>
+            </div>
+          </td>
+          <td class="text-center"><%= prediction_user.points %></td>
+          <td class="text-center">
+            <%= link_to t('look.see_results'), look_fixtures_pred_look_index_path(prediction_id: prediction_user.id), class:"btn btn-default btn-xs" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="row">
+  <%= link_to t('prediction.ranking_full'), pred_prediction_pred_ranking_path(@pred_prediction),
+       class: "btn btn-default btn-sm btn-block" %>
+</div>

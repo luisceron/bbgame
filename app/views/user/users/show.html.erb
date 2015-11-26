@@ -1,0 +1,66 @@
+<h2><%= t('layout.title.profile') %></h2>
+<div class="layout__form bigform">
+  <%= display_picture(@user, 100, 100, "img-responsive img-circle") %>
+
+  <h4><p>
+    <strong>
+      <%= t 'user.name'%>:
+      <%=@user.name %>
+    </strong>
+  </p></h4>
+  <ul><li>
+    <p style="font-size:20px; display: inline">
+      <%= t 'user.nickname'%>:
+      <%= @user.nickname %>
+    </p>
+  </li></ul>
+  <ul><li>
+    <p style="font-size:20px; display: inline">
+      <%= t 'user.email'%>:
+      <%= @user.email %>
+    </p>
+  </li></ul>
+  <ul><li>
+    <p style="font-size:20px; display: inline">
+      <%= t 'user.birth'%>:
+      <%= @user.birth.strftime("%d/%m/%Y") %>
+    </p>
+  </li></ul>
+  <ul><li>
+    <p style="font-size:20px; display: inline">
+      <%= t 'user.gender' %>:
+      <% if @user.gender == true %>
+        <%= t 'user.male' %>
+      <% else %>
+        <%= t 'user.female' %>
+      <% end %>
+    </p>
+  </li></ul>
+  <% if @user.city != '' %>
+    <ul><li>
+      <p style="font-size:20px; display: inline">
+        <%= t 'user.city' %>:
+        <%= @user.city %>
+      </p>
+    </li></ul>
+  <% end %>
+  <% if @user.phone != '' %>
+    <ul><li>
+      <p style="font-size:20px; display: inline">
+        <%= t 'user.phone' %>:
+        <%= @user.phone %>
+      </p>
+    </li></ul>
+  <% end %>
+  <% if @user.mobile != '' %>
+    <ul><li>
+      <p style="font-size:20px; display: inline">
+        <%= t 'user.mobile' %>:
+        <%= @user.mobile %>
+      </p>
+    </li></ul>
+  <% end %>
+  <div align="right">
+     <%= link_to(t('button.edit'), edit_user_user_path(@user), class: 'btn btn-large btn-primary')  %>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<% if @comp_competition.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <%= t('general.form_error') %>
+  </div>
+<% end %>
+
+<%= simple_form_for @comp_competition, :html => {:class => "form-horizontal"} do |f| %>
+  <div class="control-group"> <!-- K I N D -->
+    <div class="field">
+      <% if @comp_competition.persisted? %>
+        <%= f.label t('competition.kind')%>: <%= @comp_competition.kind %>
+      <% else %>
+        <%= f.radio_button :kind, t('competition.league') %>
+        <%= f.label :kind, t('competition.league') %> &nbsp;
+        <%= f.radio_button :kind, t('competition.cup'), disabled: true %>
+        <%= f.label :kind, t('competition.cup') %>
+      <% end %>
+    </div>
+    <div style="color:red">
+      <%= error_tag @comp_competition, :kind %>
+    </div>
+  </div><br>
+
+  <%= f.input :name, label: t('competition.name'), placeholder: t('competition.name') %>
+
+  <% if @comp_competition.teams_added %>
+    <%= f.label t('competition.number_teams') %>: <%= @comp_competition.number_teams %><br>
+    <%= f.label t('competition.number_rounds') %>: <%= @comp_competition.number_rounds %><br>
+    <%= f.label t('competition.place') %>: <%= @comp_competition.place %>
+  <% else %>
+    <%= f.input :number_teams, label: t('competition.number_teams'), placeholder: t('competition.number_teams') %>
+    <%= f.input :number_rounds, label: t('competition.number_rounds'), placeholder: t('competition.number_rounds') %>
+    <%= f.input :place, label: t('competition.place'), collection: [ "Brasil"], placeholder: t('competition.place') %>
+  <% end %>
+
+  <div align="right">
+    <%= link_to t('button.back'), comp_competitions_path, class: "btn btn-default" %>
+    <%= f.button :submit, t('button.save'), class: "btn-primary" %>
+  </div>
+<% end %>

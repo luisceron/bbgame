@@ -1,0 +1,58 @@
+<h3><%= t('fixture.assign') %></h3>
+
+<div class="col-lg-8">
+  <div class="layout__form bigform">
+
+	<% if @comp_fixture.errors.any? %>
+	  <div class="alert alert-danger" role="alert">
+	    <%= t('general.form_error') %>
+	  </div>
+	<% end %>
+
+	<%= form_for(@comp_fixture, :html => {:class => "form-horizontal"}, :url => { :action => "update_assign_fixture", :method => :put } ) do |f| %>
+	  
+	  <div class="row">
+	    <div class="col-lg-5"> <!-- T E A M 1 -->
+	      <div class="control-group">
+	        <div align="center">
+	          <%= f.label @first_team.name, class: "control-label" %>
+	        </div>
+	        <div class="controls">
+	      	  <%= f.text_field :result_team1, class: "form-control" %>
+	        </div>
+	      </div>
+	    </div>
+
+	    <div align="center" class="col-lg-2"><!-- x -->
+	      <div class="control-group">
+	        <div align="center">
+
+	        </div> 
+	        <div class="controls">
+	          X
+	        </div>
+	      </div>
+	    </div>
+
+	    <div class="col-lg-5"><!-- T E A M 2 -->
+	      <div class="control-group">
+	        <div align="center">
+	          <%= f.label @second_team.name, class: "control-label" %>
+	        </div>
+	        <div class="controls">
+	      	  <%= f.text_field :result_team2, class: "form-control" %>
+	        </div>
+	      </div>
+	    </div>
+	  </div><br>
+
+	  <br><br><br>
+
+	  <div align="center">
+	    <%= link_to t('button.back'), comp_round_path(@comp_round), class: "btn btn-default" %>
+        <%= f.submit t('fixture.assign'), class: "btn btn-default btn-primary" %>
+	  </div>
+	<% end %>
+
+  </div>
+</div>

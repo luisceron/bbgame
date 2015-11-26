@@ -1,0 +1,25 @@
+<% if @comp_round.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <%= t('general.form_error') %>
+  </div>
+<% end %>
+
+<%= form_for @comp_round, url: comp_round_form_path(@comp_round) do |f| %>
+
+  <div class="control-group"> <!-- N U M B E R   R O U N D -->
+    <%= f.label :number_round, t('round.number'), class: "control-label" %>
+    <%= f.select(:number_round, return_rounds(@comp_competition), {}, { class: "form-control" }) %>
+    <div style="color:red">
+      <%= error_tag @comp_round, :number_round %>
+    </div>
+  </div><br>
+
+  <div align="right">
+    <%= link_to t('button.back'), comp_competition_rounds_path(@comp_competition), class: "btn btn-default" %>
+    <% if @comp_round.persisted? %>
+      <%= f.submit t('button.update'), class: "btn btn-default btn-primary" %>
+    <% else %>
+      <%= f.submit t('button.register'), class: "btn btn-default btn-primary" %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,140 @@
+<% if @user.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <%= t('general.form_error') %>
+  </div>
+<% end %>
+
+<%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
+
+  <div class="control-group"> <!-- P I C T U R E -->
+    <%= f.label :picture, t('user.picture'), class: "control-label" %>
+    <div class="controls" style="display:inline">
+      <%= display_picture(@user, 50, 50, "img-responsive img-circle") %>
+      <%= f.file_field :picture %>
+    </div>
+    <div style="color:red">
+      <%= error_tag @user, :picture %>
+    </div>
+  </div><br>
+
+  <div class="control-group">  <!-- E M A I L -->
+    <div class="controls">
+      <% if user_signed_in? %>
+        <br><%= f.label t('user.email')%>: <%= @user.email %>
+      <% else %>
+      <%= f.label :email, t('user.email'), class: "control-label" %>
+        <%= f.text_field :email, :placeholder => t('user.email'), class: "form-control"%>
+      <% end %>
+    </div>
+    <div style="color:red">
+      <%= error_tag @user, :email %>
+    </div>
+  </div>
+  
+  <div class="control-group"> <!-- N A M E -->
+    <%= f.label :name, t('user.name'), class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :name, :placeholder => t('user.name'), class: "form-control" %>
+    </div>
+    <div style="color:red">
+      <%= error_tag @user, :name %>
+    </div>
+  </div>
+
+  <div class="control-group"> <!-- N I C K   N A M E -->
+    <%= f.label :nickname, t('user.nickname'), class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :nickname, :placeholder => t('user.nickname'), class: "form-control" %>
+    </div>
+    <div style="color:red">
+      <%= error_tag @user, :nickname %>
+    </div>
+  </div>
+
+  <div class="control-group"> <!-- B I R T H -->
+    <%= f.label :birth, t('user.birth'), class: "control-label" %>
+    <div class="controls">
+      <% if user_signed_in? %>
+        <%= f.text_field :birth, :placeholder => t('user.birth'), :value => @user.birth.strftime("%d-%m-%Y"), class: "form-control",id: "date" %>
+      <% else %>
+        <%= f.text_field :birth, :placeholder => t('user.birth'), class: "form-control",id: "date" %>
+      <% end %>
+    </div>
+    <div style="color:red">
+      <%= error_tag @user, :birth %>
+    </div>
+  </div>
+
+  <div class="control-group"> <!-- G E N D E R -->
+    <div class="field">
+      <%= f.label :gender, t('user.gender'), class: "control-label" %>:
+      <%= f.label :gender, t('user.male') %>
+      <%= f.radio_button :gender, true, id:"masculino" %>
+      <%= f.label :gender, t('user.female') %>
+      <%= f.radio_button :gender, false %>
+    </div>
+    <div style="color:red">
+      <%= error_tag @user, :gender %>
+    </div>
+  </div>
+
+  <div class="control-group">  <!-- C I T Y -->
+    <%= f.label :city, t('user.city'), class: "control-label" %>
+    <div class="controls">
+        <%= f.text_field :city, :placeholder => t('user.city'), class: "form-control"%>
+    </div>
+    <div style="color:red">
+      <%= error_tag @user, :city %>
+    </div>
+  </div>
+
+  <div class="control-group">  <!-- P H O N E -->
+    <%= f.label :phone, t('user.phone'), class: "control-label" %>
+    <div class="controls">
+        <%= f.text_field :phone, :placeholder => t('user.phone'), class: "form-control"%>
+    </div>
+    <div style="color:red">
+      <%= error_tag @user, :phone %>
+    </div>
+  </div>
+
+  <div class="control-group">  <!-- M O B I L E -->
+    <%= f.label :mobile, t('user.mobile'), class: "control-label" %>
+    <div class="controls">
+        <%= f.text_field :mobile, :placeholder => t('user.mobile'), class: "form-control"%>
+    </div>
+    <div style="color:red">
+      <%= error_tag @user, :mobile %>
+    </div>
+  </div>
+
+  <div class="control-group"> <!-- P A S S W O R D -->
+    <%= f.label :password, t('user.password'), class: "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password, :placeholder => t('user.password'), class: "form-control" %>
+    </div>
+    <div style="color:red">
+      <%= error_tag @user, :password %>
+    </div>
+  </div>
+
+  <div class="control-group"> <!-- C O N F I R M    P A S S -->
+    <%= f.label :password_confirmation,
+        t('user.password_confirmation'), class: "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation,
+        :placeholder => t('user.password_confirmation'),
+        class: "form-control" %>
+    </div>
+    <div style="color:red">
+      <%= error_tag @user, :password_confirmation %>
+    </div>
+  </div><br>
+  <div align="right">
+    <% if user_signed_in? %>
+      <%= f.submit t('button.update'), class: "btn btn-default btn-primary" %>
+    <% else %>
+      <%= f.submit t('button.register'), class: "btn btn-default btn-primary" %>
+    <% end %>
+  </div>
+<% end %>

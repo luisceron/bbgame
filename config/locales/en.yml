@@ -1,0 +1,112 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+
+  navbar:
+    signin: Sign in
+    signup: Sign up
+    signout: Sign out
+    profile: My Profile
+
+  layout:
+    title:
+      login: Login
+      new: Register
+      edit: Edit
+      profile: My Profile
+
+  signup:
+    confirm_email:
+      subject: 'BBGame.net - Confirm your email'
+      title: 'Welcome to BBGame.net!'
+      body: |
+          Welcome to BBGame.net, %{full_name}.
+          BBGame.net is a website for you to join the predictions
+           of the main cups and leagues in the Football World.
+          As well as to create your own Group to have fun with your friends.
+      confirm_link_html: 'To start, please confirm your email: %{link}'
+      thanks_html: 'Thanks for join on %{link}.'
+
+  user:
+    attribute:
+      name: Nome Completo
+      nickname: Apelido
+      email: E-mail
+      birth: Nascimento
+      gender: Sexo
+      male: Masculino
+      female: Feminino
+      city: Cidade
+      phone: Telefone
+      mobile: Celular
+      password: Senha
+      password_confirmation: Confirme a senha
+    created: Cadastro criado com Sucesso!
+    edited: Usuário atualizado com Sucesso!
+    removed: Usuário removido com Sucesso!
+    updated: Usuário atualizado com Sucesso!
+    email_confirm: E-mail enviado com Sucesso! Você tem 7 dias para confirmar o e-mail.
+    confirm_link_html: BBGame - Confirmação de E-mail
+
+
+  user:
+    attribute:
+      name: Full Name
+      nickname: Nickname
+      email: Email
+      birth: Birth
+      gender: Gender
+      male: Male
+      female: Female
+      city: City
+      phone: Phone
+      mobile: Mobile
+      password: Password
+      password_confirmation: Confirm password
+    created: User created successfully!
+    edited: User uploaded successfully!
+    removed: User removed successfully!
+    updated: User uploaded successfully!
+    email_confirm: Email sent successfully! You have 7 days to confirm.
+    confirm_link_html: BBGame - Email Confirmation
+
+  idiom:
+    language: Language
+    pt: Portuguese
+    en: English
+
+  user_session:
+    invalid_login: Invalid Login
+
+  general:
+    form_error: There are errors on form
+    copyright: Copyright © 2015 - Big Ball Game
+
+  button:
+    register: Sign up
+    update: Update
+    back: Back
+    login: Login
+    edit: Edit
+  
+  confirmation:
+    success: Email confirmed successfully, thank you!

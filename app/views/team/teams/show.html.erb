@@ -1,0 +1,12 @@
+<h3><%=t 'team.team_name', name: @team_team.name %></h3>
+<div class="layout__form bigform">
+  <%= display_flag(@team_team, 30, 30, "img-responsive img-circle") %> 
+  <p style="font-size:20px; display: inline">
+    <%= t 'team.country'%>:
+    <%= @team_team.country %>
+  </p>
+  <div align="right">
+    <%= link_to t('button.back'), team_teams_path, class: "btn btn-default" %>
+    <%= link_to(t('button.edit'), edit_team_team_path(@team_team), class: 'btn btn-default btn-primary')  %>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<h3><%= t('championship.ranking') %></h3>
+<div class="text-right">
+  <%= link_to t('competition.back', name: @comp_competition.name), comp_competition_path(@comp_competition), class:"btn btn-default btn-sm" %>
+</div><br>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th class="text-center"><%= t('championship.position_short') %></th>
+        <th class="text-center"><%= t('championship.team_name') %></th>
+        <th class="text-center"><%= t('championship.points_short') %></th>
+        <th class="text-center"><%= t('championship.played_short') %></th>
+        <th class="text-center"><%= t('championship.won_short') %></th>
+        <th class="text-center"><%= t('championship.drawn_short') %></th>
+        <th class="text-center"><%= t('championship.lost_short') %></th>
+        <th class="text-center"><%= t('championship.goals_for_short') %></th>
+        <th class="text-center"><%= t('championship.goals_against_short') %></th>
+        <th class="text-center"><%= t('championship.goals_difference_short') %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @comp_championship.order('position').includes(:team).each do |champ| %>
+        <tr>
+          <td class="text-center"><%= champ.position %></td>
+          <td class="text-center"><%= champ.team.name %></td>
+          <td class="text-center"><%= champ.points %></td>
+          <td class="text-center"><%= champ.played %></td>
+          <td class="text-center"><%= champ.won %></td>
+          <td class="text-center"><%= champ.drawn %></td>
+          <td class="text-center"><%= champ.lost %></td>
+          <td class="text-center"><%= champ.goals_for %></td>
+          <td class="text-center"><%= champ.goals_against %></td>
+          <td class="text-center"><%= champ.goals_difference %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,40 @@
+<div class="col-lg-6">
+  <div class="layout__form bigform">
+    <h4>Times: <%= @comp_competition.name %></h4>
+
+    <%= form_for @comp_competition, url:comp_competition_update_teams_path,
+        :html => {:onsubmit => "return check_count(#{@comp_competition.number_teams});"} do |f| %>
+      <% @teams.order(name: :asc).each do |team| %>
+        <div>
+          <%= check_box_tag :teams_ids, team.id, @comp_competition.teams.include?(team), :name => 'competition[teams_ids][]', onclick: "write_checked(#{@comp_competition.number_teams});" %>
+      	  <%= team.name %>
+        </div>
+      <% end %>
+      <br>
+      <div id="checked"></div>
+      <br>
+      <div class="btn btn-white btn-xs pull-center">
+  	    <%= link_to t('button.back'), @comp_competition, class: "btn btn-default btn-sm" %>
+      </div>
+      <%= submit_tag t('competition.add_teams'), class: "btn btn-primary btn-sm" %>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  function check_count(number_teams){
+    var n = $("input:checked").length;
+    if(n != number_teams){
+      return false;
+    }
+    if(!confirm("Are you sure? You won't be allowed to change teams later")){
+      return false;
+    }
+    return true;
+  }
+
+  function write_checked(number_teams){
+    var n = $("input:checked").length;
+    document.getElementById("checked").innerHTML = n+" of "+number_teams+" selected";
+  }
+</script>

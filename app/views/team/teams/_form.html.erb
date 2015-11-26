@@ -1,0 +1,58 @@
+<% if @team_team.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <%= t('general.form_error') %>
+  </div>
+<% end %>
+
+<%= form_for @team_team, :html => {:class => "form-horizontal"} do |f| %>
+
+  <div class="control-group"> <!-- F L A G -->
+    <%= f.label :flag, t('team.flag'), class: "control-label" %>
+    <div class="controls" style="display:inline">
+      <%= display_flag(@team_team, 30, 30, "img-responsive img-circle") %>
+      <%= f.file_field :flag %>
+    </div>
+    <div style="color:red">
+      <%= error_tag @team_team, :flag %>
+    </div>
+  </div><br>  
+  
+  <div class="control-group"> <!-- N A M E -->
+    <%= f.label :name, t('team.name'), class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :name, :placeholder => t('team.name'), class: "form-control" %>
+    </div>
+    <div style="color:red">
+      <%= error_tag @team_team, :name %>
+    </div>
+  </div>
+
+  <div class="control-group"> <!-- S H O R T   N A M E -->
+    <%= f.label :short_name, t('team.short_name'), class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :short_name, :placeholder => t('team.short_name'), class: "form-control", maxlength: 3 %>
+    </div>
+    <div style="color:red">
+      <%= error_tag @team_team, :short_name %>
+    </div>
+  </div>
+
+  <div class="control-group"> <!-- C O U N T R Y -->
+    <%= f.label :country, t('team.country'), class: "control-label" %>
+    <div class="controls">
+      <%= f.select(:country, ['Brasil'], {}, { class: "form-control" }) %>
+    </div>
+    <div style="color:red">
+      <%= error_tag @team_team, :country %>
+    </div>
+  </div><br>
+
+  <div align="right">
+    <%= link_to t('button.back'), team_teams_path, class: "btn btn-default" %>
+    <% if @team_team.persisted? %>
+      <%= f.submit t('button.update'), class: "btn btn-default btn-primary" %>
+    <% else %>
+      <%= f.submit t('button.register'), class: "btn btn-default btn-primary" %>
+    <% end %>
+  </div>
+<% end %>

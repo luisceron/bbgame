@@ -1,0 +1,11 @@
+<h2><%= t '.title' %></h2>
+<p>
+  <%= t '.body', full_name: @user.name %>
+</p>
+<p>
+  <%= t '.confirm_link_html',
+    link: link_to(@confirmation_link, @confirmation_link) %>
+</p>
+<p>
+  <%= t '.thanks_html', link: link_to('BBGame.net', root_url) %>
+</p>

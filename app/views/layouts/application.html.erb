@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BBGame</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="span12">
+      <div class="layout">
+
+        <div class="layout__header">
+          <header>
+            <% if user_signed_in? %>
+            <%= render 'layouts/user_navbar' %>
+            <% else %>
+            <%= render 'layouts/visitor_navbar' %>
+            <% end %>
+          </header>
+        </div>
+
+        <div class="layout__main">
+          <section class="container">
+            <% if notice.present? %>
+            <p class="alert alert-success" role="alert">
+              <%= notice %>
+            </p>
+            <% end %>
+            <% if alert.present? %>
+            <p class="alert alert-danger" role="alert">
+              <%= alert %>
+            </p>
+            <% end %>
+            <%= yield %>
+          </section>
+        </div>
+
+        <div class="layout__footer">
+          <footer>
+            <nav class="navbar navbar-default navbar-fixed-bottom">
+              <div class="container"><br>
+                <center>
+                  <strong><%= t('general.copyright') %></strong>
+                </center>
+              </div>
+            </nav>
+          </footer>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

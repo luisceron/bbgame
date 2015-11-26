@@ -1,0 +1,34 @@
+<h3><%= t('user.title') %></h3>
+<br>  
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th class="text-center"><%= t('user.name') %></th>
+        <th class="text-center"><%= t('user.nickname') %></th>
+        <th class="text-center"><%= t('user.email') %></th>
+        <th class="text-center" colspan="3"><%= t('layout.options') %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td class="text-center"><%= user.name %></td>
+          <td class="text-center"><%= user.nickname %></td>
+          <td class="text-center"><%= user.email %></td>
+          <td class="text-center">
+            <%= link_to t('button.show'), user, class: "btn btn-primary btn-xs" %>
+          </td>
+          <td class="text-center">
+            <%= link_to t('button.edit'), edit_user_user_path(user), class: "btn btn-info btn-xs" %>
+          </td>
+          <td class="text-center">
+            <%= link_to t('button.destroy'), user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

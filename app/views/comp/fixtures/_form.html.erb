@@ -1,0 +1,177 @@
+<% if @comp_fixture.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <%= t('general.form_error') %>
+  </div>
+<% end %>
+
+<%= form_for @comp_fixture, url: comp_fixture_form_path(@comp_fixture) do |f| %>
+  
+  <div class="row">
+    <div class="col-lg-5"> <!-- T E A M 1 -->
+      <div class="control-group">
+        <% if @comp_fixture.persisted? %>
+          <h4 class="text-center"><%= @first_team.name %></h4>
+        <% else %>
+          <div align="center">
+            <%= f.label :team1_id, t('fixture.team1_name'), class: "control-label" %>
+          </div>
+          <div class="controls">
+            <%= f.select(:"team1_id", options_from_collection_for_select(@teams, "id", "name"), {}, { class: "form-control" }) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div align="center" class="col-lg-2"><!-- x -->
+      <div class="control-group">
+        <div align="center">
+
+        </div> 
+        <div class="controls">
+          X
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-5"><!-- T E A M 2 -->
+      <div class="control-group">
+        <% if @comp_fixture.persisted? %>
+          <h4 class="text-center"><%= @second_team.name %></h4>
+        <% else %>
+          <div align="center">
+            <%= f.label :team2_id, t('fixture.team2_name'), class: "control-label" %>
+          </div>
+          <div class="controls">
+            <%= f.select(:"team2_id", options_from_collection_for_select(@teams, "id", "name"), {}, { class: "form-control" }) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div><br>
+
+  <div class="control-group"> <!-- D A T E -->
+    <% if @comp_fixture.done %>
+      <%= f.label :date, t('fixture.date'), class: "control-label" %>: <%= @comp_fixture.date %>
+    <% else %>
+      <%= f.label :date, t('fixture.date'), class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :date, :placeholder => t('fixture.date'), class: "form-control" %>
+      </div>
+    <% end %>
+    <div style="color:red">
+      <%= error_tag @comp_fixture, :date %>
+    </div>
+  </div><br>
+
+  <div class="control-group"> <!-- H O U R -->
+    <% if @comp_fixture.done %>
+      <%= f.label :hour, t('fixture.hour'), class: "control-label" %>: <%= @comp_fixture.hour %>
+    <% else %>
+      <%= f.label :hour, t('fixture.hour'), class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :hour, :placeholder => t('fixture.hour'), class: "form-control" %>
+      </div>
+    <% end %>
+    <div style="color:red">
+      <%= error_tag @comp_fixture, :hour %>
+    </div>
+  </div><br>
+
+  <div class="control-group"> <!-- L O C A L -->
+    <% if @comp_fixture.done %>
+      <%= f.label :local, t('fixture.local'), class: "control-label" %>: <%= @comp_fixture.local %>
+    <% else %>
+      <%= f.label :local, t('fixture.local'), class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :local, :placeholder => t('fixture.local'), class: "form-control" %>
+      </div>
+      <% end %>
+    <div style="color:red">
+      <%= error_tag @comp_fixture, :local %>
+    </div>
+  </div>
+
+  <% if @comp_fixture.persisted? %>
+    <br>
+    <%= f.label t('fixture.result'), class: "control-label text-center" %>:
+    <div class="row">
+      <div class="col-lg-5"> <!-- T E A M 1 -->
+        <div class="control-group">
+          <div align="center">
+            <%= f.label @first_team.name, class: "control-label" %>: 
+            <%= @comp_fixture.result_team1 %>
+          </div>
+        </div>
+      </div>
+
+      <div align="center" class="col-lg-2"><!-- x -->
+        <div class="control-group">
+          <div align="center">
+
+          </div> 
+          <div class="controls">
+            X
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5"><!-- T E A M 2 -->
+        <div class="control-group">
+          <div align="center">
+            <%= f.label @second_team.name, class: "control-label" %>: 
+            <%= @comp_fixture.result_team2 %>
+          </div>
+        </div>
+      </div>
+    </div><br>
+
+    <!-- N E W  -->
+    <!-- <br> -->
+    <%= f.label t('fixture.new_result'), class: "control-label text-center" %>:
+    <div class="row">
+      <div class="col-lg-5"> <!-- T E A M 1 -->
+        <div class="control-group">
+          <div align="center">
+            <%= f.label @first_team.name, class: "control-label" %>
+          </div>
+          <div class="controls">
+            <%= f.text_field :new_fixture_result1, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div align="center" class="col-lg-2"><!-- x -->
+        <div class="control-group">
+          <div align="center">
+
+          </div> 
+          <div class="controls">
+            X
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5"><!-- T E A M 2 -->
+        <div class="control-group">
+          <div align="center">
+          <%= f.label @second_team.name, class: "control-label" %>
+          </div>
+          <div class="controls">
+            <%= f.text_field :new_fixture_result2, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <br>
+
+  <div align="center">
+    <%= link_to t('button.back'), comp_round_path(@comp_round), class: "btn btn-default" %>
+    <% if @comp_fixture.persisted? %>
+      <%= f.submit t('button.update'), class: "btn btn-default btn-primary" %>
+    <% else %>
+      <%= f.submit t('button.register'), class: "btn btn-default btn-primary" %>
+    <% end %>
+  </div>
+<% end %>

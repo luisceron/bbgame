@@ -1,0 +1,56 @@
+<h3><%= t('competition.title') %></h3>
+<div class="text-right">
+  <%= link_to t('competition.new'), new_comp_competition_path, class:"btn btn-primary btn-sm" %>
+</div><br> 
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th class="text-center"><%= t('competition.name') %></th>
+        <th class="text-center"><%= t('competition.kind') %></th>
+        <th class="text-center"><%= t('competition.number_teams') %></th>
+        <th class="text-center"><%= t('competition.place') %></th>
+        <th class="text-center" colspan="5"><%= t('layout.options') %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @comp_competitions.each do |comp_competition| %>
+        <tr>
+          <td class="text-center"><%= comp_competition.name %></td>
+          <td class="text-center"><%= comp_competition.kind %></td>
+          <td class="text-center"><%= comp_competition.number_teams %></td>
+          <td class="text-center"><%= comp_competition.place %></td>
+          <td class="text-center">
+            <% if comp_competition.post %>
+              <span class="label label-success">
+                <%= t('competition.posted') %>
+              </span>
+            <% else %>
+              <%= link_to t('competition.post'), comp_competition_set_post_competition_path(comp_competition), method: :put, class: "btn btn-warning btn-xs", data: { confirm: t('confirmation.sure') } %>
+            <% end %>
+          </td>
+          <td class="text-center">
+            <% if comp_competition.started %>
+              <span class="label label-success">
+                <%= t('competition.started') %>
+              </span>
+            <% else %>
+              <%= link_to t('competition.start'), comp_competition_set_started_competition_path(comp_competition), method: :put, class: "btn btn-warning btn-xs", data: { confirm: t('confirmation.sure') } %>
+            <% end %>
+          </td>
+          <td class="text-center">
+            <%= link_to t('button.show'), comp_competition, class:"btn btn-primary btn-xs" %>
+          </td>
+          <td class="text-center">
+            <%= link_to t('button.edit'), edit_comp_competition_path(comp_competition), class:"btn btn-info btn-xs" %>
+          </td>
+          <td class="text-center">
+            <%= link_to t('button.destroy'), comp_competition, method: :delete, data: { confirm: t('confirmation.sure') }, class:"btn btn-danger btn-xs" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

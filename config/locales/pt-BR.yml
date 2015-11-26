@@ -1,0 +1,237 @@
+pt-BR:
+  navbar:
+    admin: Admin
+    signin: Entrar
+    signup: Registrar
+    signout: Sair
+    profile: Meu Perfil
+
+  user:
+    title: Usuários
+    name: Nome Completo
+    nickname: Apelido
+    email: E-mail
+    picture: Foto
+    birth: Nascimento
+    gender: Sexo
+    male: Masculino
+    female: Feminino
+    city: Cidade
+    phone: Telefone
+    mobile: Celular
+    password: Senha
+    password_confirmation: Confirme a senha
+    created: >
+            Bem Vindo ao BigBall Game.
+            Seu cadastro foi criado com sucesso,
+            e um e-mail de confirmação enviado para
+    edited: Usuário atualizado com Sucesso!
+    removed: Usuário removido com Sucesso!
+    updated: Usuário atualizado com Sucesso!
+    confirm_link_html: BBGame - Confirmação de E-mail
+
+  team:
+    title: Times
+    team_name: "%{name}"
+    name: Nome
+    short_name: Nome abreviado (3 Caracteres)
+    country: País
+    new: Novo Time
+    edit: Editar Time
+    flag: Escudo
+    created: Time criado com sucesso
+    not_created: Não foi possível criar Time
+    updated: Time atualizado com sucesso
+    not_updated: Não foi possível atualizar Time
+    removed: Time removido com sucesso
+    not_removed: Impossível remover este time. Time adicionado a competição
+
+  competition:
+    title: Competições
+    competition_name: "%{name}"
+    name: Nome da Competição
+    kind: Tipo
+    number_teams: Número de participantes
+    place: Times
+    number_rounds: Número de rodadas
+    new: Nova Competição
+    edit: Editar Competição
+    created: Competição criada com sucesso.
+    not_created: Competição não criada.
+    updated: Competição atualizada com sucesso.
+    not_updated: Competição não atualizada.
+    removed: Competição removida com sucesso.
+    created_at: Criado em
+    updated_at: Atualizado em
+    league: Liga
+    cup: Copa
+    add_teams: Adicionar Times
+    select_teams: Selecionar Times
+    add_fixtures: Adicionar Rodadas
+    rounds: Rodadas
+    ranking: Ranking
+    back: "%{name}"
+    teams_added: Times já selecionados
+    post: Submeter
+    posted: Submetido
+    posted_success: Competitição submetida com sucesso
+    start: Iniciar
+    started: Iniciado
+    started_success: Competição inicializada com sucesso
+
+
+  championship:
+    ranking: Ranking
+    position: Posição
+    team_name: Time
+    points: Pontos
+    played: Jogos
+    won: Vitórias
+    drawn: Empates
+    lost: Derrotas
+    goals_for: Gols a favor
+    goals_against: Gols sofridos
+    goals_difference: Diferença de Gols
+    position_short: POS
+    points_short: P
+    played_short: J
+    won_short: V
+    drawn_short: E
+    lost_short: D
+    goals_for_short: GF
+    goals_against_short: GS
+    goals_difference_short: DG
+
+  round:
+    title: Rodadas
+    number: Rodada Número
+    number_round: Rodada Número %{number}
+    new: Nova Rodada
+    edit: Editar Rodada
+    created: Rodada criada com sucesso.
+    updated: Rodada atualizada com sucesso.
+    removed: Rodada removida com sucesso.
+    add_fixture: Adicionar Jogo
+    finish: Finalizar
+    done: Finalizada
+    undone: Não Finalizada
+    round_done: Rodada Finalizada
+    round_undone: Não é possível finalizar esta rodada
+
+  fixture:
+    team1_name: Mandante
+    team2_name: Visitante
+    result_team1: P.M.
+    result_team2: P.V.
+    date: Data
+    hour: Hora
+    local: Local
+    new: Novo Jogo
+    edit: Editar Jogo
+    created: Jogo criado com sucesso.
+    updated: Jogo atualizado com sucesso.
+    removed: Jogo removido com sucesso.
+    error: Impossível criar jogo.
+    assign: Atribuir placar
+    assigned_result: Placar Atribuído
+    assigned: Placar atribuido com sucesso.
+    done: Finalizado
+    undone: Não Finalizado
+    finish: Finalizar
+    fixture_done: Jogo Finalizado
+    fixture_undone: Não é possível finalizar este jogo
+    result: Resultado
+    new_result: Novo Resultado
+
+  prediction:
+    title: Competições do Usuário
+    new: Adicionar Competição
+    choose_league: Selecionar Liga
+    view: Visualizar 
+    predict_results: Prever Resultados
+    selected: Competição adicionada com sucesso
+    not_selected: Competição já adicionada
+    removed: Competição removida com sucesso
+    ranking_full: Ranking Completo
+    ranking_users: Ranking Usuários
+    round: Rodada
+    final_result: Resultado Final
+    points: Pontuação
+    position: Posição
+    user: Usuário
+    saved: Rodada atualizada com sucesso
+
+  look:
+    see_results: Visualizar Resultados
+
+  layout:
+    title:
+      login: Login
+      new: Registro
+      edit: Editar
+      profile: Meu Perfil
+    options: Opções
+
+  signup:
+    confirm_email:
+      subject: 'BBGame.net - Confirme seu E-mail'
+      title: 'Seja bem vindo ao BBGame.net!'
+      body: |
+          Seja bem vindo ao BBGame.net, %{full_name}.
+          O BBGame.net é um site para você participar dos bolões
+          das principais copas e ligas no mundo do futebol.
+          Além de poder criar seu próprio bolão para se divertir
+          com seus amigos.
+      confirm_link_html: 'Para você começar a usar o site, por favor confirme seu e-mail acessando o link: %{link}'
+      thanks_html: 'Obrigado por se cadastrar no %{link}.'
+
+  idiom:
+    language: Idioma
+    pt: Português
+    en: Inglês
+
+  #user_session:
+  #  invalid_login: Login Inválido
+
+  general:
+    form_error: "Verifique os erros no formulário:"
+    copyright: Todos os direitos reservados © 2015 - Big Ball Game
+
+  button:
+    save: Salvar
+    register: Cadastrar
+    update: Atualizar
+    back: Voltar
+    login: Entrar
+    show: Visualizar
+    edit: Editar
+    destroy: Apagar
+    join: Participar
+    leave: Sair
+    button_yes: Sim
+    button_no: Não
+    cancel: Cancelar
+
+  confirmation:
+    success: E-mail confirmado com sucesso, obrigado!
+    sure: "Você tem certeza?"
+
+  notice:
+    needs_login: "Você precisa estar logado para continuar."
+    logged_in: "Você já está logado."
+    signed_in: 'Login efetuado com sucesso!'
+    signed_out: 'Logout efetuado com sucesso. Até logo!'
+  
+  error:
+    not_found: Página não encontrada
+    internal_server_error: Erro interno do Servidor
+    not_access: Acesso Negado
+
+  activemodel:
+    errors:
+      messages:
+        invalid_login: 'Usuário ou senha inválidos'
+
+  simple_form:
+    required:
+      text: Requerido
