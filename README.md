@@ -1,2 +1,2 @@
-# bbgame
+# Testing
 App Test for RoR trainning
