@@ -26,8 +26,8 @@
 every 1.minute do
   # command "/bin/bash -l -c 'cd /vagrant && rails runner -e development '\''Pred::PredFixture.out_of_date_fixture'\'''"
 
-  # command "/bin/bash -l -c 'cd /vagrant && rails runner -e development '\''Task.out_of_date_fixture'\'''"
-  command "/bin/bash -l -c 'cd /vagrant && rails runner -e production '\''Task.out_of_date_fixture'\'''"
+  command "/bin/bash -l -c 'cd /vagrant && rails runner -e development '\''Task.out_of_date_fixture'\'''"
+  # command "/bin/bash -l -c 'cd /vagrant && rails runner -e production '\''Task.out_of_date_fixture'\'''"
 end
 
 every 1.minute do
