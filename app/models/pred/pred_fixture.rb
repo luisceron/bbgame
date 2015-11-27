@@ -93,7 +93,7 @@ class Pred::PredFixture < ActiveRecord::Base
       fixture = Comp::Fixture.find(pred_fixture.fixture_id)
       if fixture.date == Date.today && fixture.hour.hour == Time.now.in_time_zone.hour
         if Time.now.in_time_zone.min >= fixture.hour.min
-          pred_fixture.update_attribute(:out_ofdate_time, true)
+          pred_fixture.update_attribute(:out_of_date_time, true)
         end
       end
     end
