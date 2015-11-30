@@ -36,6 +36,10 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  # DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit`
+  # You can opt into the new behavior and remove this warning by setting:
+  config.active_record.raise_in_transactional_callbacks = true
+
   # Aponta o host para o ambiente de desenvolvimento
   config.action_mailer.default_url_options = {
     host: "localhost:3000"
