@@ -23,6 +23,8 @@ module BBGame
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    config.serve_static_files = true
+
     config.exceptions_app = self.routes # To enable errors
   end
 end
