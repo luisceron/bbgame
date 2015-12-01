@@ -6,6 +6,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </head>
 <body>
   <div class="container">
@@ -24,45 +26,34 @@
 
         <div class="layout__main">
           <section class="container">
-            <% if notice.present? %>
-            <p class="alert alert-success" role="alert">
-              <%= notice %>
-            </p>
-            <% end %>
-            <% if alert.present? %>
-            <p class="alert alert-danger" role="alert">
-              <%= alert %>
-            </p>
-            <% end %>
-
-            <div class="col-md-8">
-              <%= yield %>
-            </div>
-            <div class="cold-md-4">
-              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-              <!-- Ad1 -->
-              <ins class="adsbygoogle"
-                   style="display:block"
-                   data-ad-client="ca-pub-4813074202734304"
-                   data-ad-slot="7656384679"
-                   data-ad-format="auto"></ins>
-              <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-              </script>
-
-
-              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-              <!-- ad2 -->
-              <ins class="adsbygoogle"
-                   style="display:block"
-                   data-ad-client="ca-pub-4813074202734304"
-                   data-ad-slot="1609851072"
-                   data-ad-format="auto"></ins>
-              <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-              </script>
-            </div>
-            
+            <!-- <div class="container-fluid"> -->
+              <!-- <div class="row-fluid"> -->
+                <!-- <div class="col-md-9" style="background-color:#e5e5ff;"> -->
+                <div class="col-md-9">
+                  <% if notice.present? %>
+                    <p class="alert alert-success" role="alert"><%= notice %></p>
+                  <% end %>
+                  <% if alert.present? %>
+                    <p class="alert alert-danger" role="alert"><%= alert %></p>
+                  <% end %>
+                  <%= yield %>
+                </div>
+                <div class="col-md-3" style="background-color:#ffe5e5;">
+                  <!-- Ad1 -->
+                  <ins  class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-4813074202734304"
+                        data-ad-slot="7656384679"
+                        data-ad-format="auto"></ins>
+                  <!-- ad2 -->
+                  <ins  class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-4813074202734304"
+                        data-ad-slot="1609851072"
+                        data-ad-format="auto"></ins>
+                </div>
+              <!-- </div> -->
+            <!-- </div> -->
           </section>
         </div>
 

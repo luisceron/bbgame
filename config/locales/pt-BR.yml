@@ -49,7 +49,8 @@ pt-BR:
   competition:
     title: Competições
     competition_name: "%{name}"
-    name: Nome da Competição
+    name: Competição
+    theres_no: Você não está participando de nenhuma competição
     kind: Tipo
     number_teams: Número de participantes
     place: Times

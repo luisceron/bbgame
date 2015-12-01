@@ -43,13 +43,16 @@
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
+<!--         <li>
           <div class="navbar-brand brand">
             <strong>
-              <%= link_to display_picture(@user, 30, 30, "img-responsive img-circle"),
+              <s%= link_to display_picture(@user, 30, 30, "img-responsive img-circle"),
                     user_user_path(current_user) %>
             </strong>
           </div>
+        </li> -->
+        <li>
+          <%= link_to t('navbar.profile'), user_user_path(@user) %>
         </li>
         <li>
           <%= link_to t('navbar.signout'),
