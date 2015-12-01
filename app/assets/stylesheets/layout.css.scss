@@ -1,14 +1,27 @@
 @import "shadow";
 
-
-/*body{
-    background: url('bg.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    margin-top: 12%;
-    background-size:100% auto;
+/*body {
+  background-image: url(bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
 }*/
+
+/*  background: url('bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover; */
+
+body {
+  background: url(bg.jpg) no-repeat center center fixed;
+}
+
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+  background: url(bg.jpg) no-repeat center center fixed;
+}
+
 
 .navbar-brand.brand {
   padding: 10px;
@@ -50,86 +63,3 @@
     vertical-align: middle;
     float: none;
 }
-
-
-
-
-/*   BEGIN TO CHANGE NAVBAR COLOR */
-/* Red * /
-$bgDefault      : #e74c3c;
-$bgHighlight    : #c0392b;
-$colDefault     : #ecf0f1;
-$colHover       : #ffbbbc; /*/
-/* Green * /
-$bgDefault      : #2ecc71;
-$bgHighlight    : #27ae60;
-$colDefault     : #ecf0f1;
-$colHover       : #d1ffed; /*/
-/* Purple * /
-$bgDefault      : #9b59b6;
-$bgHighlight    : #8e44ad;
-$colDefault     : #ecf0f1;
-$colHover       : #ecdbff; /*/
-/* Orange * /
-$bgDefault      : #e67e22;
-$bgHighlight    : #d35400;
-$colDefault     : #ecf0f1;
-$colHover       : #ffe6d1; /*/
-
-
-/* BBGame * /
-$bgDefault      : #8BB381;
-$bgHighlight    : #000000;
-$colDefault     : #000000;
-$colHover       : #EFFFE5; /*/
-
-
-/* --- Style --- * /
-.navbar-default {
-    background-color: $bgDefault;
-    border-color: $bgHighlight;
-    .navbar-brand {
-        color: $colDefault;
-        &:hover, &:focus {
-            color: $colHover; }}
-    .navbar-nav {
-        > li {
-            > a {
-                color: $colDefault;
-                &:hover, &:focus {
-                    color: $colHover;   }}}
-        .active {
-            > a, > a:hover, > a:focus {
-                color: $colHover;
-                background-color: $bgHighlight; }}
-        .open {
-            > a, > a:hover, > a:focus {
-                color: $colHover;
-                background-color: $bgHighlight;
-                .caret {
-                    border-top-color: $colHover;
-                    border-bottom-color: $colHover; }}}
-        > .dropdown {
-            > a {
-                .caret {
-                    border-top-color: $colDefault;
-                    border-bottom-color: $colDefault; }
-                &:hover, &:focus {
-                    .caret {
-                        border-top-color: $colHover;
-                        border-bottom-color: $colHover; }}}}}
-    .navbar-toggle {
-        border-color: $bgHighlight;
-        &:hover, &:focus {
-            background-color: $bgHighlight; }
-        .icon-bar {
-            background-color: $colDefault; }}}
-@media (max-width: 767px) {
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-        color: $colDefault;
-        &:hover, &:focus {
-            color: $colHover;
-            background-color: $bgHighlight; }}
-}/*/
-/*   END TO CHANGE NAVBAR COLOR */
-
