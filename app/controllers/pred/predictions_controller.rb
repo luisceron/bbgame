@@ -66,7 +66,7 @@ class Pred::PredictionsController < ApplicationController
       @pred_round = Pred::PredRound.show_round_predictions(@pred_rounds,
                       params['pred_round_id'], params['d'])
       if @pred_round.present? == false
-        redirect_to pred_prediction_path(@pred_prediction), alert: "Do not have Fixtures yet"
+        redirect_to pred_prediction_path(@pred_prediction), alert: t('prediction.no_fixtures')
       else
         @pred_fixtures = @pred_round.pred_fixtures
       end

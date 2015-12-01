@@ -50,6 +50,7 @@ pt-BR:
     title: Competições
     competition_name: "%{name}"
     name: Competição
+    my_competitions: Minhas Competições
     theres_no: Você não está participando de nenhuma competição
     kind: Tipo
     number_teams: Número de participantes
@@ -148,6 +149,7 @@ pt-BR:
     title: Competições do Usuário
     new: Adicionar Competição
     choose_league: Selecionar Liga
+    theres_no: Não há nenhuma nova competição
     view: Visualizar 
     predict_results: Prever Resultados
     selected: Competição adicionada com sucesso
@@ -157,10 +159,12 @@ pt-BR:
     ranking_users: Ranking Usuários
     round: Rodada
     final_result: Resultado Final
-    points: Pontuação
+    points: Pontos
     position: Posição
     user: Usuário
     saved: Rodada atualizada com sucesso
+    no_fixtures: Competição não iniciada
+    assign_fixtures: Palpites dos Jogos
 
   look:
     see_results: Visualizar Resultados

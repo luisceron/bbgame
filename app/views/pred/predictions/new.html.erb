@@ -1,9 +1,10 @@
-<h3><%= t('prediction.new') %></h3>
-<div class="col-lg-8">
+<br><h4><strong><%= t('prediction.new') %></strong></h4>
+<!-- <div class="col-lg-8"> -->
   <div class="layout__form bigform">
 	<div align="right">
-	  <%= link_to t('competition.title'), pred_predictions_path, class: "btn btn-default" %>
+	  <%= link_to t('competition.my_competitions'), pred_predictions_path, class: "btn btn-default" %>
 	</div><br>
     <%= render 'form' %>
   </div>
-</div>
+<!-- </div> -->
+<br>

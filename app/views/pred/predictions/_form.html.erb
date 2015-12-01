@@ -1,24 +1,31 @@
-<div class="table-responsive">
+<!-- <div class="table-responsive"> -->
   <table class="table table-striped table-hover table-bordered">
-    <thead>
+<!--     <thead>
       <tr>
-        <th class="text-center"><%= t('competition.name') %></th>
-        <th class="text-center"><%= t('competition.place') %></th>
-        <th class="text-center"><%= t('layout.options') %></th>
+        <th class="text-center"><s%= t('competition.name') %></th>
+        <th class="text-center"><s%= t('competition.place') %></th>
+        <th class="text-center"><s%= t('layout.options') %></th>
       </tr>
-    </thead>
+    </thead> -->
 
     <tbody>
-      <% @comp_competitions.each do |competition| %>
-        <tr>
-          <td class="text-center"><%= competition.name %></td>
-          <td class="text-center"><%= competition.place %></td>
-          <td class="text-center">
-            <%= link_to t('button.join'), pred_predictions_path(competition_id: competition.id), method: :post , class:"btn btn-primary btn-xs", data: {confirm: t('confirmation.sure')}, "data-confirm-fade" => true, "data-confirm-title" => "BBGame", "data-confirm-cancel" => t('button.cancel'), "data-confirm-proceed" => t('button.join') %>
-          </td>
-        </tr>
+      <% if @comp_competitions.size == 0 %>
+        <br>
+        <p class="text-center text-muted"><%= t('prediction.theres_no') %></p>
+      <% else %>
+        <% @comp_competitions.each do |competition| %>
+          <tr>
+            <!-- <td class="text-center"><s%= competition.name %></td> -->
+            <td class="text-center">
+              <%= link_to competition.name, pred_predictions_path(competition_id: competition.id), method: :post , class:"link", data: {confirm: t('confirmation.sure')}, "data-confirm-fade" => true, "data-confirm-title" => "BBGame", "data-confirm-cancel" => t('button.cancel'), "data-confirm-proceed" => t('button.join') %>
+            </td>
+            <!-- <td class="text-center"><s%= competition.place %></td> -->
+  <!--           <td class="text-center">
+              <s%= link_to t('button.join'), pred_predictions_path(competition_id: competition.id), method: :post , class:"btn btn-primary btn-xs", data: {confirm: t('confirmation.sure')}, "data-confirm-fade" => true, "data-confirm-title" => "BBGame", "data-confirm-cancel" => t('button.cancel'), "data-confirm-proceed" => t('button.join') %> -->
+            </td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
-</div>
-  
+<!-- </div> -->

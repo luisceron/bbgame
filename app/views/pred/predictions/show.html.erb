@@ -2,16 +2,14 @@
 <div class="row">
   <div class="col-lg-3">
     <div class="wrapper wrapper-content project-manager">
-      <h4>
-        <%= @pred_prediction.competition.name %>
-      </h4><br><br>
+      <h4><strong><%= @pred_prediction.competition.name %></strong></h4>
+      <!-- <br><br> -->
       <div align="center">
-        <%= image_tag("logo/ball_icon1.png", width: 50, height:50, class:"img-responsive")%>
+<!--         <s%= image_tag("logo/ball_icon1.png", width: 50, height:50, class:"img-responsive")%> -->
       </div><br><br>
       <div class="text-center m-t-md">
         <div class="row">
-          <%= link_to "Assign Fixtures", pred_prediction_assign_fixtures_path(@pred_prediction), class: "btn btn-default btn-sm btn-block" %>
-
+          <%= link_to t('prediction.assign_fixtures'), pred_prediction_assign_fixtures_path(@pred_prediction), class: "btn btn-default btn-sm" %>
         </div><br>
       </div>
     </div>
@@ -22,15 +20,15 @@
       <div class="ibox">
         <div class="ibox-content">
           <div class="row m-t-sm">
-            <div class="col-lg-12">
-              <div class="panel blank-panel">
-                <div class="panel-body">
-                  <div class="tab-content">
-                      <%= render template: "pred/predictions/pred_ranking" %>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!-- <div class="col-lg-12"> -->
+              <!-- <div class="panel blank-panel"> -->
+                <!-- <div class="panel-body"> -->
+                  <!-- <div class="tab-content"> -->
+                    <%= render template: "pred/predictions/pred_ranking" %>
+                  <!-- </div> -->
+                <!-- </div> -->
+              <!-- </div> -->
+            <!-- </div> -->
           </div>
 
         </div>
@@ -40,3 +38,4 @@
 
 </div>
 </div>
+<br>
