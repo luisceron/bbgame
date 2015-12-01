@@ -1,10 +1,13 @@
 <br>
 
-<div class="text-center">
-  <%= link_to @pred_prediction.competition.name, pred_prediction_path(@pred_prediction), class: "h3", style: "text-decoration: none;" %>
+<div class="text-center link">
+<!--   <s%= link_to @pred_prediction.competition.name, pred_prediction_path(@pred_prediction), class: "h3", style: "text-decoration: none;" %> -->
+  <h4><strong>
+    <%= link_to @pred_prediction.competition.name, pred_prediction_path(@pred_prediction) %>
+  </strong></h4>
 </div><br> 
 <div class="text-center">
-  <h3>
+  <h4>
     <span style="float:left">
       <% if @pred_round.round.number_round == 1 %>
         <%= link_to "<<", pred_prediction_assign_fixtures_path(@pred_prediction, pred_round_id: @pred_round.id, d: 1), class:"btn btn-default btn-sm", disabled: true %>
@@ -23,11 +26,11 @@
         <%= link_to ">>", pred_prediction_assign_fixtures_path(@pred_prediction, pred_round_id: @pred_round.id, d: 2), class:"btn btn-default btn-sm" %>
       <% end %>
     </span>
-  </h3>
+  </h4>
 </div>
 <br>
 
-<div class="table-responsive">
+<!-- <div class="table-responsive"> -->
   <%= form_for :pred_fixture, :url => pred_prediction_update_round_path, :html => { :method => :put } do %>
     <table class="table"> <!-- class="table table-striped table-hover"> -->
       <% @pred_fixtures.includes(:fixture).each do |pred_fixture| %>
@@ -132,13 +135,13 @@
     </table>
     
     <div class="actions text-center">
-      <%= link_to t('button.back'), pred_prediction_path(@pred_prediction), class: "btn btn-default btn-sm" %>
+      <%= link_to t('button.back'), pred_prediction_path(@pred_prediction), class: "btn btn-default btn-sm" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <% if @pred_round.round.done == false %>
         <%= submit_tag t('button.save'), remote: true, class:"btn btn-primary btn-sm" %>
       <% end %>
     </div>
   <% end %>
-</div>
+<!-- </div> -->
 
 <style type="text/css">
   input{

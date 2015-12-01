@@ -16,7 +16,7 @@
         <% @comp_competitions.each do |competition| %>
           <tr>
             <!-- <td class="text-center"><s%= competition.name %></td> -->
-            <td class="text-center">
+            <td class="text-center link">
               <%= link_to competition.name, pred_predictions_path(competition_id: competition.id), method: :post , class:"link", data: {confirm: t('confirmation.sure')}, "data-confirm-fade" => true, "data-confirm-title" => "BBGame", "data-confirm-cancel" => t('button.cancel'), "data-confirm-proceed" => t('button.join') %>
             </td>
             <!-- <td class="text-center"><s%= competition.place %></td> -->

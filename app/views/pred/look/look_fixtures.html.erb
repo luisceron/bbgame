@@ -1,48 +1,99 @@
 <br>
 
-<div class="col-md-8 text-center">
-<div class="text-center">
-  <%= link_to @pred_prediction.competition.name, pred_prediction_path(@pred_prediction), class: "h3" %>
+<!-- <div class="col-md-8 text-center"> -->
+<div class="text-center link">
+<!--   <s%= link_to @pred_prediction.competition.name, pred_prediction_path(@pred_prediction), class: "h3" %> -->
+  <h4><strong>
+    <%= link_to @pred_prediction.competition.name, pred_prediction_path(@pred_prediction) %>
+  </strong></h4>
 </div><br> 
 <div class="text-center">
-  <h3>
-    <span style="float:left"><%= link_to "<<", look_fixtures_pred_look_index_path(prediction_id: @pred_prediction.id, pred_round_id: @pred_round.id, d: 1), class:"btn btn-default btn-sm" %></span>
+  <h4>
+    <span style="float:left">
+      <% if @pred_round.round.number_round == 1 %>
+        <%= link_to "<<", look_fixtures_pred_look_index_path(prediction_id: @pred_prediction.id, pred_round_id: @pred_round.id, d: 1), class:"btn btn-default btn-sm", disabled: true %>
+      <% else %>
+        <%= link_to "<<", look_fixtures_pred_look_index_path(prediction_id: @pred_prediction.id, pred_round_id: @pred_round.id, d: 1), class:"btn btn-default btn-sm" %>
+      <% end %>
+    </span>
     <span><%= t('prediction.round') %><%= @pred_round.round.number_round %></span>
-    <span style="float:right"><%= link_to ">>", look_fixtures_pred_look_index_path(prediction_id: @pred_prediction.id, pred_round_id: @pred_round.id, d: 2), class:"btn btn-default btn-sm" %></span>
-  </h3>
+    <span style="float:right">
+      <% if @pred_round.round.number_round == @pred_prediction.competition.number_rounds %>
+        <%= link_to ">>", look_fixtures_pred_look_index_path(prediction_id: @pred_prediction.id, pred_round_id: @pred_round.id, d: 2), class:"btn btn-default btn-sm", disabled: true %>
+      <% else %>
+        <%= link_to ">>", look_fixtures_pred_look_index_path(prediction_id: @pred_prediction.id, pred_round_id: @pred_round.id, d: 2), class:"btn btn-default btn-sm" %>
+      <% end %>
+    </span>
+  </h4>
 </div>
 <br>
 
-<div class="table-responsive">
-  <table class="table table-striped table-hover">
+<!-- <div class="table-responsive"> -->
+  <table class="table"><!-- <table class="table table-striped table-hover"> -->
     <% @pred_fixtures.includes(:fixture).each do |pred_fixture| %>
-      <tr class="text-center">
-        <td colspan="2">
-          <div class="vcenter" style="float:left">
-            <%= display_flag_from_team(pred_fixture.fixture.team1_id, 25, 25, "img-responsive img-circle") %>
-          </div>
-          <div class="vcenter">
-            <%= get_team_name(pred_fixture.fixture.team1_id) %>
-          </div>
-        </td>
-
-        <% if pred_fixture.out_of_date_time %>
-          <td>
-            <%= pred_fixture.pred_result_team1 %>
+      
+      <% if pred_fixture.filled %>
+        <tr class="success">
+          <td colspan="2">
+            <div class="vcenter" style="float:left">
+              <%= display_flag_from_team(pred_fixture.fixture.team1_id, 25, 25, "img-responsive img-circle") %>
+            </div>
+            <div class="vcenter">
+<!--               <s%= get_team_name(pred_fixture.fixture.team1_id) %> -->
+              <%= label(get_team_short_name(pred_fixture.fixture.team1_id), get_team_short_name(pred_fixture.fixture.team1_id), title: get_team_name(pred_fixture.fixture.team1_id)) %>
+            </div>
           </td>
-          <td class="text-center">
-            <%= pred_fixture.pred_result_team2 %>
-          </td> 
-        <% end %>
-        <td colspan="2">
-          <div class="vcenter" style="float:left">
-            <%= display_flag_from_team(pred_fixture.fixture.team1_id, 25, 25, "img-responsive img-circle") %>
-          </div>
-          <div class="vcenter">
-            <%= get_team_name(pred_fixture.fixture.team2_id) %>
-          </div>
-        </td>
-      </tr>
+
+          <% if pred_fixture.out_of_date_time %>
+            <td>
+              <%= pred_fixture.pred_result_team1 %>
+            </td>
+            <td class="text-center">
+              <%= pred_fixture.pred_result_team2 %>
+            </td> 
+          <% end %>
+          <td colspan="2">
+            <div class="vcenter" style="float:left">
+              <%= display_flag_from_team(pred_fixture.fixture.team2_id, 25, 25, "img-responsive img-circle") %>
+            </div>
+            <div class="vcenter">
+<!--               <s%= get_team_name(pred_fixture.fixture.team2_id) %> -->
+              <%= label(get_team_short_name(pred_fixture.fixture.team2_id), get_team_short_name(pred_fixture.fixture.team2_id), title: get_team_name(pred_fixture.fixture.team2_id)) %>
+            </div>
+          </td>
+        </tr>
+      <% else %>
+        <tr class="danger">
+          <td colspan="2">
+            <div class="vcenter" style="float:left">
+              <%= display_flag_from_team(pred_fixture.fixture.team1_id, 25, 25, "img-responsive img-circle") %>
+            </div>
+            <div class="vcenter">
+<!--               <s%= get_team_name(pred_fixture.fixture.team1_id) %> -->
+              <%= label(get_team_short_name(pred_fixture.fixture.team1_id), get_team_short_name(pred_fixture.fixture.team1_id), title: get_team_name(pred_fixture.fixture.team1_id)) %>
+            </div>
+          </td>
+
+          <% if pred_fixture.out_of_date_time %>
+            <td>
+              <%= pred_fixture.pred_result_team1 %>
+            </td>
+            <td class="text-center">
+              <%= pred_fixture.pred_result_team2 %>
+            </td> 
+          <% end %>
+
+          <td colspan="2">
+            <div class="vcenter" style="float:left">
+              <%= display_flag_from_team(pred_fixture.fixture.team2_id, 25, 25, "img-responsive img-circle") %>
+            </div>
+            <div class="vcenter">
+<!--               <s%= get_team_name(pred_fixture.fixture.team2_id) %> -->
+              <%= label(get_team_short_name(pred_fixture.fixture.team2_id), get_team_short_name(pred_fixture.fixture.team2_id), title: get_team_name(pred_fixture.fixture.team2_id)) %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
 
       <% if pred_fixture.fixture.done %>
         <tr class="text-center">
@@ -59,5 +110,11 @@
       <% end %>
     <% end %>
   </table>
-</div>
-</div>
+<!-- </div> -->
+<!-- </div> -->
+
+<style type="text/css">
+  input{
+    text-align:center;
+  }
+</style>
