@@ -47,6 +47,8 @@ body {
 
 .layout__form{
   @include shadow(#ccc, 0, 3px, 6px);
+  background-color: #ffffff;
+  border-radius: 15px 30px 10px 5px;
 }
 
 .layout__form.bigform{
@@ -59,7 +61,7 @@ body {
 }
 
 .vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
 }

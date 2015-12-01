@@ -1,33 +1,35 @@
-<h2><%= t('layout.title.profile') %></h2>
 <div class="layout__form bigform">
+<h4><strong><%= t('layout.title.profile') %></strong></h4>
+  <br>
   <%= display_picture(@user, 100, 100, "img-responsive img-circle") %>
 
   <h4><p>
     <strong>
-      <%= t 'user.name'%>:
-      <%=@user.name %>
+<!--       <s%= t 'user.name'%>: -->
+      <%= @user.nickname %>
     </strong>
   </p></h4>
+  <br>
   <ul><li>
-    <p style="font-size:20px; display: inline">
-      <%= t 'user.nickname'%>:
-      <%= @user.nickname %>
+    <p style="font-size:14px; display: inline">
+      <%= t 'user.name'%>:
+      <%= @user.name %>
     </p>
   </li></ul>
   <ul><li>
-    <p style="font-size:20px; display: inline">
+    <p style="font-size:14px; display: inline">
       <%= t 'user.email'%>:
       <%= @user.email %>
     </p>
   </li></ul>
   <ul><li>
-    <p style="font-size:20px; display: inline">
+    <p style="font-size:14px; display: inline">
       <%= t 'user.birth'%>:
       <%= @user.birth.strftime("%d/%m/%Y") %>
     </p>
   </li></ul>
   <ul><li>
-    <p style="font-size:20px; display: inline">
+    <p style="font-size:14px; display: inline">
       <%= t 'user.gender' %>:
       <% if @user.gender == true %>
         <%= t 'user.male' %>
@@ -38,7 +40,7 @@
   </li></ul>
   <% if @user.city != '' %>
     <ul><li>
-      <p style="font-size:20px; display: inline">
+      <p style="font-size:14px; display: inline">
         <%= t 'user.city' %>:
         <%= @user.city %>
       </p>
@@ -46,7 +48,7 @@
   <% end %>
   <% if @user.phone != '' %>
     <ul><li>
-      <p style="font-size:20px; display: inline">
+      <p style="font-size:14px; display: inline">
         <%= t 'user.phone' %>:
         <%= @user.phone %>
       </p>
@@ -54,7 +56,7 @@
   <% end %>
   <% if @user.mobile != '' %>
     <ul><li>
-      <p style="font-size:20px; display: inline">
+      <p style="font-size:14px; display: inline">
         <%= t 'user.mobile' %>:
         <%= @user.mobile %>
       </p>

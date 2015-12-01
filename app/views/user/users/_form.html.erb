@@ -10,7 +10,7 @@
     <%= f.label :picture, t('user.picture'), class: "control-label" %>
     <div class="controls" style="display:inline">
       <%= display_picture(@user, 50, 50, "img-responsive img-circle") %>
-      <%= f.file_field :picture %>
+<!--       <s%= f.file_field :picture %> -->
     </div>
     <div style="color:red">
       <%= error_tag @user, :picture %>
