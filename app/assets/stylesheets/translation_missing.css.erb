@@ -3,3 +3,9 @@
     border: 3px dashed red;
   }
 <% end %>
+
+<% if Rails.env.production? %>
+  .translation_missing {
+    border: 3px dashed red;
+  }
+<% end %>

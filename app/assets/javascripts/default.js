@@ -6,8 +6,11 @@ $(window).bind('page:change', function() {
   initPage();
 })
 
-function initPage() {
-  $(document).ready(function(){
-    $("#date").inputmask("d/m/y",{ "placeholder": "dd/mm/yyyy" });
+$(document).on('ready page:load', function(){
+  $("input").focus(function() {
+    this.select();
   });
-}
+
+  $("#date").inputmask("d/m/y",{ "placeholder": "dd/mm/yyyy" });
+
+});
