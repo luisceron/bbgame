@@ -176,7 +176,11 @@ pt-BR:
       edit: Editar
       profile: Meu Perfil
     options: Opções
+    advertising: Publicidade
 
+  home:
+    begin: "Bem-Vindo ao BBGame, o seu novo site para palpites no mundo do futebol"
+    
   signup:
     confirm_email:
       subject: 'BBGame.net - Confirme seu E-mail'
@@ -200,7 +204,7 @@ pt-BR:
 
   general:
     form_error: "Verifique os erros no formulário:"
-    copyright: Todos os direitos reservados © 2016 - Big Ball Game
+    copyright: Todos os direitos reservados © 2016 - BBGame
 
   button:
     save: Salvar
