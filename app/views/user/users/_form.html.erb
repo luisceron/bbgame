@@ -29,7 +29,7 @@
     <div style="color:red">
       <%= error_tag @user, :email %>
     </div>
-  </div>
+  </div><br>
   
   <div class="control-group"> <!-- N A M E -->
     <%= f.label :name, t('user.name'), class: "control-label" %>
@@ -39,7 +39,7 @@
     <div style="color:red">
       <%= error_tag @user, :name %>
     </div>
-  </div>
+  </div><br>
 
   <div class="control-group"> <!-- N I C K   N A M E -->
     <%= f.label :nickname, t('user.nickname'), class: "control-label" %>
@@ -49,8 +49,8 @@
     <div style="color:red">
       <%= error_tag @user, :nickname %>
     </div>
-  </div>
-
+  </div><br>
+  
   <div class="control-group"> <!-- B I R T H -->
     <%= f.label :birth, t('user.birth'), class: "control-label" %>
     <div class="controls">
@@ -63,20 +63,20 @@
     <div style="color:red">
       <%= error_tag @user, :birth %>
     </div>
-  </div>
+  </div><br>
 
   <div class="control-group"> <!-- G E N D E R -->
     <div class="field">
-      <%= f.label :gender, t('user.gender'), class: "control-label" %>:
+<!--       <s%= f.label :gender, t('user.gender'), class: "control-label" %>: -->
       <%= f.label :gender, t('user.male') %>
-      <%= f.radio_button :gender, true, id:"masculino" %>
+      <%= f.radio_button :gender, true, id:"masculino" %>&nbsp;&nbsp;&nbsp;&nbsp;
       <%= f.label :gender, t('user.female') %>
       <%= f.radio_button :gender, false %>
     </div>
     <div style="color:red">
       <%= error_tag @user, :gender %>
     </div>
-  </div>
+  </div><br>
 
   <div class="control-group">  <!-- C I T Y -->
     <%= f.label :city, t('user.city'), class: "control-label" %>
@@ -86,7 +86,7 @@
     <div style="color:red">
       <%= error_tag @user, :city %>
     </div>
-  </div>
+  </div><br>
 
   <div class="control-group">  <!-- P H O N E -->
     <%= f.label :phone, t('user.phone'), class: "control-label" %>
@@ -96,17 +96,17 @@
     <div style="color:red">
       <%= error_tag @user, :phone %>
     </div>
-  </div>
+  </div><br>
 
-  <div class="control-group">  <!-- M O B I L E -->
-    <%= f.label :mobile, t('user.mobile'), class: "control-label" %>
+<!--   <div class="control-group">-->  <!-- M O B I L E -->
+<!--    <s%= f.label :mobile, t('user.mobile'), class: "control-label" %>
     <div class="controls">
-        <%= f.text_field :mobile, :placeholder => t('user.mobile'), class: "form-control"%>
+        <s%= f.text_field :mobile, :placeholder => t('user.mobile'), class: "form-control"%>
     </div>
     <div style="color:red">
-      <%= error_tag @user, :mobile %>
+      <s%= error_tag @user, :mobile %>
     </div>
-  </div>
+  </div><br> -->
 
   <div class="control-group"> <!-- P A S S W O R D -->
     <%= f.label :password, t('user.password'), class: "control-label" %>
@@ -116,7 +116,7 @@
     <div style="color:red">
       <%= error_tag @user, :password %>
     </div>
-  </div>
+  </div><br>
 
   <div class="control-group"> <!-- C O N F I R M    P A S S -->
     <%= f.label :password_confirmation,

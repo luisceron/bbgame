@@ -1,19 +1,5 @@
 @import "shadow";
 
-/*body {
-  background-image: url(bg.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #464646;
-}*/
-
-/*  background: url('bg.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover; */
-
 body {
   background: url(bg.jpg) no-repeat center center fixed;
 }
@@ -22,12 +8,11 @@ body {
   background: url(bg.jpg) no-repeat center center fixed;
 }
 
-
 .navbar-brand.brand {
   padding: 10px;
   a{
     text-decoration: none;
-    color: black;
+    color: white;
   }
 }
 
@@ -52,7 +37,7 @@ body {
 }
 
 .layout__form.bigform{
-  padding: 40px;
+  padding: 10px;
 }
 
 .layout__form.login{
