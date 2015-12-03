@@ -10,7 +10,6 @@ feature "User Profile", :type => :feature do
 
   scenario "expected on show" do
     expect(page).to have_content("Nome Completo")
-    expect(page).to have_content("Apelido")
     expect(page).to have_content("E-mail")
     expect(page).to have_content("Nascimento")
   end

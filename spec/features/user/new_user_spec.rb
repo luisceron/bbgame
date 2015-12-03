@@ -10,7 +10,7 @@ feature "Signing up", :type => :feature do
     fill_in "Nascimento", with: "05/05/1995"
     fill_in "Cidade", with: "Erechim"
     fill_in "Telefone", with: "(54)3712-9999"
-    fill_in "Celular", with: "(54)9172-9999"
+    # fill_in "Celular", with: "(54)9172-9999"
     within("section") do
       fill_in "Senha", with: "senha123123"
     end

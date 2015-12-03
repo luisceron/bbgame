@@ -45,16 +45,17 @@ gem 'twitter-bootstrap-rails-confirm'
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'rubycritic'
   gem 'simplecov', :require => false
 end
 
 #Dependencies for Tests
-group :teste do
+group :test do
+  gem 'shoulda-matchers', '~> 3.0'
   gem 'capybara-screenshot'
   gem 'poltergeist'
   gem "launchy"
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
+  gem "codeclimate-test-reporter", require: nil
 end

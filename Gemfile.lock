@@ -76,6 +76,8 @@ GEM
       mime-types (>= 1.16)
     chronic (0.10.2)
     cliver (0.3.2)
+    codeclimate-test-reporter (0.4.8)
+      simplecov (>= 0.7.1, < 1.0.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.0.1)
@@ -284,6 +286,7 @@ DEPENDENCIES
   capybara
   capybara-screenshot
   carrierwave
+  codeclimate-test-reporter
   coffee-rails (~> 4.0.0)
   factory_girl_rails
   friendly_id
@@ -299,7 +302,7 @@ DEPENDENCIES
   rubycritic
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
-  shoulda-matchers
+  shoulda-matchers (~> 3.0)
   simple_form
   simplecov
   turbolinks

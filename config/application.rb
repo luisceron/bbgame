@@ -26,5 +26,7 @@ module BBGame
     config.serve_static_files = true
 
     config.exceptions_app = self.routes # To enable errors
+
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end

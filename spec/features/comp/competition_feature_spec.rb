@@ -30,7 +30,7 @@ feature "competition feature", :type => :feature do
 
   scenario "updating competition" do
     visit "/comp/competitions/#{competition.id}/edit" 
-    fill_in "Nome", with: "New Name"
+    fill_in "Competição", with: "New Name"
     click_button "Salvar"
     expect(page).to have_content("Competição atualizada com sucesso.")
     expect(page).to have_content("Editar")

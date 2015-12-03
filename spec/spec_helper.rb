@@ -1,5 +1,10 @@
 require 'capybara/rspec'
 
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
+require "shoulda/matchers"
+
 require 'simplecov'
 SimpleCov.start do
   add_group "Models", "app/models"
@@ -8,7 +13,6 @@ SimpleCov.start do
   add_group "Helpers", "app/helpers"
 end
 SimpleCov.minimum_coverage 100 unless ARGV.join("") =~ /:\d+$/ #ignore when calling only a specific test
-
 
 require 'phantomjs' # <-- Not required if your app does Bundler.require automatically (e.g. when using Rails)
 # Driver Poltergeist to allow JS execution in tests
@@ -70,6 +74,9 @@ RSpec.configure do |config|
     end
   end
 
+  config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+  
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
