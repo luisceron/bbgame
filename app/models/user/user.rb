@@ -18,7 +18,7 @@ class User::User < ActiveRecord::Base
   validates_presence_of :name, :nickname, :email, :birth, :slug
   validates_format_of :email, with: EMAIL_REGEXP
   validates_uniqueness_of :email
-  friendly_id :nickname, use: [:slugged, :history]
+  friendly_id :nickname, use: [:slugged, :history, :finders]
   has_secure_password
   scope :confirmed, -> { where.not(confirmed_at: nil) }
   mount_uploader :picture, PictureUploader
