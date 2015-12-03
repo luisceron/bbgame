@@ -81,22 +81,11 @@ class Pred::PredFixture < ActiveRecord::Base
     pred_fixtures = Pred::PredFixture.where(out_of_date_time: false)
     pred_fixtures.each do |pred_fixture|
       fixture = Comp::Fixture.find(pred_fixture.fixture_id)
-      puts "fixture: #{fixture}"
-      puts "fixture.hour: #{fixture.hour}"
       new_hour = fixture.hour - 10.minutes
-      puts "fixture.date: #{fixture.date}"
-      puts "=="
-      puts "Date.today: #{Date.today}"
-      puts "new_hour.to_s(:time): #{new_hour.to_s(:time)}"
-      puts "<="
-      puts "Time.now.in_time_zone.to_s(:time): #{Time.now.in_time_zone.to_s(:time)}"
-      puts "---------------------------------------------------"
       if fixture.date == Date.today && new_hour.to_s(:time) <= Time.now.in_time_zone.to_s(:time)
         pred_fixture.update_attribute(:out_of_date_time, true)
       end
     end
-
-
   end
   
   #============================================================================

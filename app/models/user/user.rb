@@ -74,7 +74,8 @@ class User::User < ActiveRecord::Base
   # Return: Nil
   #----------------------------------------------------------------------------
   def self.verifyConfirmedEmails
-    query = '90 days'
+    # query = '90 days'
+    query = '8 minutes'
     users = User::User.where('(LOCALTIMESTAMP - created_at) >
       interval ? AND
       confirmed_at IS NULL AND confirmation_token IS NOT NULL', query).destroy_all
