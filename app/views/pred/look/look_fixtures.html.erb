@@ -34,6 +34,15 @@
     <% @pred_fixtures.includes(:fixture).each do |pred_fixture| %>
       
       <% if pred_fixture.filled %>
+        <tr>
+          <td colspan="5" class="text-center">
+            <h6>
+              <%= pred_fixture.fixture.date.strftime("%d/%m/%Y") %> -
+              <%= pred_fixture.fixture.hour.strftime("%H:%M") %> -
+              <%= pred_fixture.fixture.local %>
+            </h6>
+          </td>
+        </tr>
         <tr class="success">
           <td colspan="2">
             <div class="vcenter" style="float:left">
@@ -46,13 +55,21 @@
           </td>
 
           <% if pred_fixture.out_of_date_time %>
-            <td>
+            <td class="text-center">
               <%= pred_fixture.pred_result_team1 %>
             </td>
             <td class="text-center">
+              <div class="vcenter" style="float:left">&times;&nbsp;&nbsp;</div> 
               <%= pred_fixture.pred_result_team2 %>
-            </td> 
+            </td>
+          <% else %>
+            <td class="text-center"></td>
+            <td class="text-center">
+              <div class="vcenter" style="float:left">&times;&nbsp;&nbsp;</div> 
+            </td>
           <% end %>
+
+
           <td colspan="2">
             <div class="vcenter" style="float:left">
               <%= display_flag_from_team(pred_fixture.fixture.team2_id, 25, 25, "img-responsive img-circle") %>
@@ -64,6 +81,15 @@
           </td>
         </tr>
       <% else %>
+        <tr>
+          <td colspan="5" class="text-center">
+            <h6>
+              <%= pred_fixture.fixture.date.strftime("%d/%m/%Y") %> -
+              <%= pred_fixture.fixture.hour.strftime("%H:%M") %> -
+              <%= pred_fixture.fixture.local %>
+            </h6>
+          </td>
+        </tr>
         <tr class="danger">
           <td colspan="2">
             <div class="vcenter" style="float:left">
@@ -76,12 +102,18 @@
           </td>
 
           <% if pred_fixture.out_of_date_time %>
-            <td>
+            <td class="text-center">
               <%= pred_fixture.pred_result_team1 %>
             </td>
             <td class="text-center">
+              <div class="vcenter" style="float:left">&times;&nbsp;&nbsp;</div> 
               <%= pred_fixture.pred_result_team2 %>
-            </td> 
+            </td>
+          <% else %>
+            <td class="text-center"></td>
+            <td class="text-center">
+              <div class="vcenter" style="float:left">&times;&nbsp;&nbsp;</div> 
+            </td>
           <% end %>
 
           <td colspan="2">
@@ -98,14 +130,19 @@
 
       <% if pred_fixture.fixture.done %>
         <tr class="text-center">
-          <td colspan="3"><%= t('prediction.final_result')%>: 
-            <%= get_team_name(pred_fixture.fixture.team1_id) %>
-            <%= pred_fixture.fixture.result_team1 %> X
-            <%= pred_fixture.fixture.result_team2 %>
-            <%= get_team_name(pred_fixture.fixture.team2_id) %>
+          <td class="text-center" colspan="4">
+            <h6><strong>
+              <%= t('prediction.final_result')%>: 
+              <%= get_team_short_name(pred_fixture.fixture.team1_id) %>
+              <%= pred_fixture.fixture.result_team1 %> &times;
+              <%= pred_fixture.fixture.result_team2 %>
+              <%= get_team_short_name(pred_fixture.fixture.team2_id) %>
+            </strong></h6>
           </td>
           <td>
-            <%= t('prediction.points')%>: <%= pred_fixture.points %>
+            <h6><strong>
+              <%= t('prediction.points')%>: <%= pred_fixture.points %>
+            </strong></h6>
           </td>
         </tr>
       <% end %>

@@ -37,6 +37,13 @@
         <%= fields_for "pred_fixture[]", pred_fixture do |pred_fixture_fields| %>
 
           <% if pred_fixture.filled %>
+            <tr>
+              <td colspan="4" class="text-center">
+                <h6><%= pred_fixture.fixture.date.strftime("%d/%m/%Y") %> -
+                <%= pred_fixture.fixture.hour.strftime("%H:%M") %> -
+                <%= pred_fixture.fixture.local %></h6>
+              </td>
+            </tr>
             <tr class="success">
               <td>
                 <div class="vcenter" style="float:left">
@@ -52,7 +59,7 @@
                   <%= pred_fixture.pred_result_team1 %>
                 </td>
                 <td class="text-center">
-                  <div class="vcenter" style="float:left">X</div>
+                  <div class="vcenter" style="float:left">&times;&nbsp;&nbsp;</div> 
                   <%= pred_fixture.pred_result_team2 %>
                 </td>
               <% else %>
@@ -74,6 +81,13 @@
               </td>
             </tr>
           <% else %>
+            <tr>
+              <td colspan="4" class="text-center">
+                <h6><%= pred_fixture.fixture.date.strftime("%d/%m/%Y") %> -
+                <%= pred_fixture.fixture.hour.strftime("%H:%M") %> -
+                <%= pred_fixture.fixture.local %></h6>
+              </td>
+            </tr>
             <tr class="danger">
               <td>
                 <div class="vcenter" style="float:left">
@@ -118,14 +132,19 @@
 
           <% if pred_fixture.fixture.done %>
             <tr class="text-center">
-              <td colspan="3"><%= t('prediction.final_result')%>: 
-                <%= get_team_name(pred_fixture.fixture.team1_id) %>
-                <%= pred_fixture.fixture.result_team1 %> X
-                <%= pred_fixture.fixture.result_team2 %>
-                <%= get_team_name(pred_fixture.fixture.team2_id) %>
+              <td class="text-center" colspan="3">
+                <h6><strong>
+                  <%= t('prediction.final_result')%>: 
+                  <%= get_team_short_name(pred_fixture.fixture.team1_id) %>
+                  <%= pred_fixture.fixture.result_team1 %> &times;
+                  <%= pred_fixture.fixture.result_team2 %>
+                  <%= get_team_short_name(pred_fixture.fixture.team2_id) %>
+                </strong></h6>
               </td>
               <td>
-                <%= t('prediction.points')%>: <%= pred_fixture.points %>
+                <h6><strong>
+                  <%= t('prediction.points')%>: <%= pred_fixture.points %>
+                </strong></h6>
               </td>
             </tr>
           <% end %>
@@ -143,6 +162,7 @@
   <% end %>
 <!-- </div> -->
 </div>
+
 <style type="text/css">
   input{
     text-align:center;
