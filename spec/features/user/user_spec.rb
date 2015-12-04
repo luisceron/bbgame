@@ -1,7 +1,7 @@
 # encoding: utf-8
 feature "User Profile", :type => :feature do
 
-  let(:user) {create :user_user}
+  let(:user) {create(:user_user)}
 
   before{ 
     sign_in_with(user.email, user.password)
@@ -29,5 +29,10 @@ feature "User Profile", :type => :feature do
 
   scenario "require_no_authentication" do
     visit new_user_user_path
+  end
+
+  scenario "accessing after user destroyed" do
+    user.destroy
+    visit "/user/users/#{user.id}" 
   end
 end

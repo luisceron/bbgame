@@ -34,9 +34,9 @@ class User::User < ActiveRecord::Base
   # Params: Nil
   # Return: Array<User::User>
   #----------------------------------------------------------------------------
-  def self.scoped
-    User::User.all
-  end
+  # def self.scoped
+  #   User::User.all
+  # end
 
   #----------------------------------------------------------------------------
   # If user still not confirmed, confirm user updating confirmed_at and token

@@ -31,9 +31,10 @@ RSpec.describe Pred::PredFixture, type: :model do
   	expect(Pred::PredFixture.calculate_points(fixture, pred_fixture)).to be(10)
   end
 
-  # it "service to check if fixture is out of date" do
-  # 	pred_fixture.update_attributes(date: Date.today, hour: Time.now.in_time_zone.hour.to_s)
-  # 	Pred::PredFixture.out_of_date_fixture
-  # end
+  it "service to check if fixture is out of date" do
+  	fixture.update_attributes(date: Date.today, hour: Time.now.in_time_zone.hour.to_s)
+    pred_fix = pred_fixture
+  	Pred::PredFixture.out_of_date_fixture
+  end
 
 end

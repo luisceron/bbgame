@@ -10,7 +10,7 @@ class User::UsersController < ApplicationController
   before_action :user_change, only: [:edit, :update, :show]
   # before_action :can_change, only: [:edit, :update, :show, :index, :destroy]
   before_action :can_change, only: [:index, :destroy]
-  before_action :admin_can_change, only: [:index, :destroy]
+  # before_action :admin_can_change, only: [:index, :destroy]
 
   #============================================================================
   #   A C T I O N S
@@ -57,7 +57,7 @@ class User::UsersController < ApplicationController
 
     def load_user
       # @user ||= user_scope.friendly.find(params[:id])
-      @user = User::User.find(params[:id])
+      @user ||= User::User.find(params[:id])
     end
 
     def new_user
@@ -94,9 +94,9 @@ class User::UsersController < ApplicationController
                     :password_confirmation)
     end
 
-    def user_scope
-      User::User.scoped
-    end
+    # def user_scope
+    #   User::User.scoped
+    # end
 
     def user_change
       unless user_signed_in? && (current_user == load_user || user_admin?)
@@ -118,10 +118,10 @@ class User::UsersController < ApplicationController
       end
     end
 
-    def admin_can_change
-      unless user_admin?
-        redirect_to root_path
-      end
-    end
+    # def admin_can_change
+    #   unless user_admin?
+    #     redirect_to root_path
+    #   end
+    # end
 
 end
