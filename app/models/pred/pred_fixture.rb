@@ -44,6 +44,60 @@ class Pred::PredFixture < ActiveRecord::Base
     end
   end
 
+  #  NEW METHOD TO CALCULATE RESULTS
+  def self.calculate_points2(fixture, pred_fixture)
+    new_points = 0
+
+    first_team_final_result = fixture.result_team1
+    second_team_final_result = fixture.result_team2
+    first_team_pred_result = pred_fixture.pred_result_team1
+    second_team_pred_result = pred_fixture.pred_result_team2
+
+    if pred_fixture.filled == true # If prediction fixture was filled up
+      final_result_fixture = Pred::Ranking.define_fixture_points(first_team_final_result, second_team_final_result)
+      pred_result_fixture  = Pred::Ranking.define_fixture_points(first_team_pred_result, second_team_pred_result)
+
+      # Define if User hits or not the Result
+      if pred_result_fixture == final_result_fixture  # User Hits the Result
+        new_points = 70
+
+        if first_team_pred_result == first_team_final_result && second_team_pred_result == second_team_final_result
+          new_points = 150
+        end
+
+        if final_result_fixture == 1 # If Team1 Wins
+          if first_team_pred_result == first_team_final_result && second_team_pred_result != second_team_final_result
+            new_points += 30
+          elsif first_team_pred_result != first_team_final_result && second_team_pred_result == second_team_final_result
+            new_points += 25
+          else
+            new_points += 0
+          end
+        elsif final_result_fixture == 2 # If Team2 Wins
+          if first_team_pred_result != first_team_final_result && second_team_pred_result == second_team_final_result
+            new_points += 30
+          elsif first_team_pred_result == first_team_final_result && second_team_pred_result != second_team_final_result
+            new_points += 25
+          else
+            new_points += 0
+          end
+        else # If Drawn
+          if first_team_pred_result != first_team_final_result && second_team_pred_result != second_team_final_result
+            new_points += 20
+          end
+        end
+
+      else #User doesn't Hit the Result
+
+      end
+
+
+      new_points
+    else # If prediction fixture wasn't filled up
+      new_points
+    end
+  end
+
   #----------------------------------------------------------------------------
   # Update PredFixtures of a Fixture when this one is updated
   # Params: Comp::Fixture, Comp::Fixture(new)
