@@ -59,3 +59,6 @@ group :test do
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem "codeclimate-test-reporter", require: nil
 end
+
+gem 'devise'
+gem 'devise-i18n'
